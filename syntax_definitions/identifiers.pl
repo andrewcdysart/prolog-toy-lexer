@@ -1,3 +1,9 @@
+/*
+ * Provided under the MIT license.
+ * See License.md for license details
+ * Copyright (c) 2019 Andrew Dysart
+ */
+
 :- module('syntax_definitions/identifiers', [id_identifier/3]).
 :- use_module(words).
 :- use_module(numbers).

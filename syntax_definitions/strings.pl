@@ -1,3 +1,9 @@
+/*
+ * Provided under the MIT license.
+ * See License.md for license details
+ * Copyright (c) 2019 Andrew Dysart
+ */
+
 :- module('syntax_definitions/strings',[is_string/1]).
 
 is_string_innerchar(X) :- letter(X), !; punctuation(X), !; digit(X), !; space(X).

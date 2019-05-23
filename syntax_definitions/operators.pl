@@ -1,3 +1,9 @@
+/*
+ * Provided under the MIT license.
+ * See License.md for license details
+ * Copyright (c) 2019 Andrew Dysart
+ */
+
 :- module('syntax_definitions/operators',[is_operator/1, id_operator/3]).
 operator('=').
 operator('+').

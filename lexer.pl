@@ -1,3 +1,9 @@
+/*
+ * Provided under the MIT license.
+ * See License.md for license details
+ * Copyright (c) 2019 Andrew Dysart
+ */
+
 :- use_module('syntax_definitions/words').
 :- use_module('syntax_definitions/numbers').
 :- use_module('syntax_definitions/operators').
