@@ -6,6 +6,12 @@
 
 :- module(tokenizer,[tokenize/2]).
 :- use_module('syntax_definitions/whitespace').
+:- use_module('syntax_definitions/words').
+:- use_module('syntax_definitions/numbers').
+:- use_module('syntax_definitions/operators').
+:- use_module('syntax_definitions/punctuation').
+:- use_module('syntax_definitions/identifiers').
+:- use_module('syntax_definitions/strings').
 
 next_token([],[],[]).                        % Whitespace at the end of a file results in no token being found
 next_token(X,Token,RestOfChars) :-           % Attempt to identify the next token, giving back unconsumed characters

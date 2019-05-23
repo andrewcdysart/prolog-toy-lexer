@@ -4,12 +4,6 @@
  * Copyright (c) 2019 Andrew Dysart
  */
 
-:- use_module('syntax_definitions/words').
-:- use_module('syntax_definitions/numbers').
-:- use_module('syntax_definitions/operators').
-:- use_module('syntax_definitions/punctuation').
-:- use_module('syntax_definitions/identifiers').
-:- use_module('syntax_definitions/strings').
 :- use_module(tokenizer).
 :- use_module('fileio/filereader').
 
