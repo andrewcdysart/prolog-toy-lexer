@@ -5,6 +5,10 @@
  */
 
 :- module('syntax_definitions/strings',[is_string/1]).
+:- use_module('syntax_definitions/words').
+:- use_module('syntax_definitions/numbers').
+:- use_module('syntax_definitions/whitespace').
+:- use_module('syntax_definitions/punctuation').
 
 is_string_innerchar(X) :- letter(X), !; punctuation(X), !; digit(X), !; space(X).
 is_string([X|[]]) :- !, quote(X).                        % Strings must end in a quote.
