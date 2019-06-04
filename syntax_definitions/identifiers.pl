@@ -7,6 +7,7 @@
 :- module('syntax_definitions/identifiers', [id_identifier/3]).
 :- use_module(words).
 :- use_module(numbers).
+:- use_module(punctuation).
 term_char('_').
 term_char('-').
 

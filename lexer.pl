@@ -7,16 +7,32 @@
 :- use_module(tokenizer).
 :- use_module('fileio/filereader').
 
-interpret(X) :- string_chars(X,Chars),
-   tokenize(Chars,T),write_ln(T).
+interpret(X) :- X = 'h', !,
+   write_ln("l - Lex direct input"),
+   write_ln("r - Read a file into the lexer"),
+   write_ln("e - Exit the program"),
+   go.
+interpret(X) :- X = 'r', !,
+   write("Filename: "),
+   read(File),
+   read_file(File,String),
+   lex(String),
+   go.
+interpret(X) :- X = 'l', !,
+   write_ln("Lexing Direct Input"),
+   write("Input: "),
+   read(Y),
+   lex(Y),
+   go.
+interpret(X) :- X = 'e', !,
+   write_ln("Bye!"),
+   halt.
+interpret(_) :-
+   interpret('h'),
+   go.
 
-transform_lines([X|[]],StringLines) :-
-   StringLines=X.
-transform_lines([X|OtherLines],StringLines) :-
-   atom_codes('\n',NlCode),
-   append(X,NlCode,Line),
-   transform_lines(OtherLines,Lines),
-   append(Line,Lines,StringLines).
+lex(X) :- string_chars(X,Chars),
+   tokenize(Chars,T),write_ln(T).
 
 go() :- current_prolog_flag(argv,[Arg|[]]), !,
    interpret(Arg).

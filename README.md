@@ -9,8 +9,8 @@ by building my own syntax.
 
 The codebase is written using [SWI Prolog][SWI Site], a free Prolog
 implementation. The main module is [*lexer.pl*][lexer]. Upon loading,
-I would recommend running either the *go/0* predicate or the *file_read/1*
-predicate, supplying a filename to read in and parse.
+I would recommend running the *go/0* predicate, typing 'h.' when asked
+to supply a command.
 
 ## Background
 

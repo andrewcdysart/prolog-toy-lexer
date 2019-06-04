@@ -4,7 +4,7 @@
  * Copyright (c) 2019 Andrew Dysart
  */
 
-:- module('fileio/filereader',[read_file/1]).
+:- module('fileio/filereader',[read_file/2]).
 
 :- use_module(library(pio)).
 lines([]) --> call(eos), !.
@@ -13,8 +13,15 @@ eos([],[]).
 line([]) --> ( "\n"; call(eos) ), !.
 line([L|Ls]) --> [L], line(Ls).
 
-read_file(F) :-
+transform_lines([X|[]],StringLines) :-
+   StringLines=X.
+transform_lines([X|OtherLines],StringLines) :-
+   atom_codes('\n',NlCode),
+   append(X,NlCode,Line),
+   transform_lines(OtherLines,Lines),
+   append(Line,Lines,StringLines).
+
+read_file(F,String) :-
    phrase_from_file(lines(AllLines),F),
    transform_lines(AllLines,CombinedLines),
-   string_chars(What,CombinedLines),
-   interpret(What).
+   string_chars(String,CombinedLines).
