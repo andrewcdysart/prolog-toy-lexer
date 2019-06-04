@@ -6,30 +6,24 @@
 
 :- use_module(tokenizer).
 :- use_module('fileio/filereader').
+:- include('cmd_utils/cmd').
 :- initialization go.
 
-interpret(X) :- X = 'h', !,
-   write_ln("l - Lex direct input"),
-   write_ln("r - Read a file into the lexer"),
-   write_ln("e - Exit the program"),
-   go.
-interpret(X) :- X = 'r', !,
+command('r', "Read a file into the lexer", cmd_read_file()).
+cmd_read_file() :-
    write("Filename: "),
    read(File),
    read_file(File,String),
-   lex(String),
-   go.
-interpret(X) :- X = 'l', !,
+   lex(String).
+
+command('l', "Lex direct input", cmd_lex_input()).
+cmd_lex_input() :-
    write_ln("Lexing Direct Input"),
    write("Input: "),
    read(Y),
-   lex(Y),
-   go.
-interpret(X) :- X = 'e', !,
-   write_ln("Bye!"),
-   halt.
-interpret(_) :-
-   interpret('h'),
+   lex(Y).
+
+interpret(X) :- process_cmd(X),
    go.
 
 lex(X) :- string_chars(X,Chars),
