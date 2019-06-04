@@ -6,6 +6,7 @@
 
 :- use_module(tokenizer).
 :- use_module('fileio/filereader').
+:- initialization go.
 
 interpret(X) :- X = 'h', !,
    write_ln("l - Lex direct input"),

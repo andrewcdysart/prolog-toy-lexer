@@ -9,8 +9,8 @@ by building my own syntax.
 
 The codebase is written using [SWI Prolog][SWI Site], a free Prolog
 implementation. The main module is [*lexer.pl*][lexer]. Upon loading,
-I would recommend running the *go/0* predicate, typing 'h.' when asked
-to supply a command.
+you will be prompted for a command. Supplying 'h' will give a list of
+acceptable commands!
 
 ## Background
 
