@@ -7,12 +7,16 @@
 :- use_module(tokenizer).
 :- use_module('fileio/filereader').
 :- include('cmd_utils/cmd').
-:- initialization go.
+% TODO: Investigate Prolog "ifdefs" to selectively exclude initialization goal during compilation
+% :- initialization go.
 
 command('r', "Read a file into the lexer", cmd_read_file()).
 cmd_read_file() :-
    write("Filename: "),
    read(File),
+   lex_file(File).
+
+lex_file(File) :-
    read_file(File,String),
    lex(String).
 
@@ -35,3 +39,6 @@ go() :-
    write("Command: "),
    read(X),
    interpret(X).
+
+go(File) :-
+   lex_file(File).

@@ -8,9 +8,15 @@ by building my own syntax.
 ## Installation and Usage
 
 The codebase is written using [SWI Prolog][SWI Site], a free Prolog
-implementation. The main module is [*lexer.pl*][lexer]. Upon loading,
-you will be prompted for a command. Supplying 'h' will give a list of
-acceptable commands!
+implementation. The main module is [*lexer.pl*][lexer]. Compilation
+is performed using clang. Makefiles assume that LLVM is installed at
+C:/LLVM and that the 64-bit version of SWI Prolog is installed at the
+default location. In the future, these paths will be handled with
+environment variables.
+
+Once compilation is completed, *lexer.exe* may be found in build/image.
+It should be passed a filename, which will then be processed. The file
+*test.txt* shows examples of parseable input!
 
 ## Background
 
